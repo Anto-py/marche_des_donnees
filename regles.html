@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Règles — Le marché aux données</title>
+  <meta name="description" content="Règles complètes des 3 manches du jeu Le marché aux données : inscription, ciblage, confiscation.">
+  <meta name="theme-color" content="#127676">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="page-frame">
+
+  <svg class="corner-flourish top-left" viewBox="0 0 100 100" fill="currentColor"><path d="M5,95 Q5,5 95,5 Q70,5 55,20 C40,35 45,55 30,65 Q15,75 5,95 Z" opacity="0.3"/><path d="M10,90 Q10,25 75,10" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="75" cy="10" r="6"/><circle cx="55" cy="22" r="4"/><circle cx="38" cy="38" r="3"/><path d="M20,80 Q25,60 40,55 Q55,50 50,35" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="80" r="5"/><path d="M60,30 Q70,20 80,25 Q75,35 60,30 Z"/></svg>
+  <svg class="corner-flourish top-right" viewBox="0 0 100 100" fill="currentColor"><path d="M5,95 Q5,5 95,5 Q70,5 55,20 C40,35 45,55 30,65 Q15,75 5,95 Z" opacity="0.3"/><path d="M10,90 Q10,25 75,10" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="75" cy="10" r="6"/><circle cx="55" cy="22" r="4"/><circle cx="38" cy="38" r="3"/><path d="M20,80 Q25,60 40,55 Q55,50 50,35" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="80" r="5"/><path d="M60,30 Q70,20 80,25 Q75,35 60,30 Z"/></svg>
+  <svg class="corner-flourish bottom-left" viewBox="0 0 100 100" fill="currentColor"><path d="M5,95 Q5,5 95,5 Q70,5 55,20 C40,35 45,55 30,65 Q15,75 5,95 Z" opacity="0.3"/><path d="M10,90 Q10,25 75,10" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="75" cy="10" r="6"/><circle cx="55" cy="22" r="4"/><circle cx="38" cy="38" r="3"/><path d="M20,80 Q25,60 40,55 Q55,50 50,35" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="80" r="5"/><path d="M60,30 Q70,20 80,25 Q75,35 60,30 Z"/></svg>
+  <svg class="corner-flourish bottom-right" viewBox="0 0 100 100" fill="currentColor"><path d="M5,95 Q5,5 95,5 Q70,5 55,20 C40,35 45,55 30,65 Q15,75 5,95 Z" opacity="0.3"/><path d="M10,90 Q10,25 75,10" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="75" cy="10" r="6"/><circle cx="55" cy="22" r="4"/><circle cx="38" cy="38" r="3"/><path d="M20,80 Q25,60 40,55 Q55,50 50,35" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="80" r="5"/><path d="M60,30 Q70,20 80,25 Q75,35 60,30 Z"/></svg>
+
+  <header class="retro-header">
+    <div class="retro-logo"><a href="index.html">Le marché<br>aux données</a></div>
+    <nav class="retro-nav-links">
+      <a href="index.html" class="retro-nav-link">Accueil</a>
+      <a href="regles.html" class="retro-nav-link active">Règles</a>
+      <a href="telechargements.html" class="retro-nav-link">Télécharger</a>
+    </nav>
+    <button class="retro-nav-burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="retro-nav-mobile">
+      <a href="index.html" class="retro-nav-link">Accueil</a>
+      <a href="regles.html" class="retro-nav-link active">Règles</a>
+      <a href="telechargements.html" class="retro-nav-link">Télécharger</a>
+    </nav>
+  </header>
+
+  <section class="retro-section-light">
+    <div class="retro-section-inner">
+      <h2 class="retro-section-title">Règles du jeu</h2>
+      <p style="max-width: 760px; font-size: 1.05rem;">Trois manches qui s'empilent, autour d'une grande table, avec toute la classe. <strong>Manche&nbsp;1</strong> joue comme un Uno. <strong>Manche&nbsp;2</strong> comme un Rami. <strong>Manche&nbsp;3</strong>, c'est du théâtre — et c'est là que tout se joue pédagogiquement.</p>
+
+      <nav class="rules-toc" aria-label="Sommaire">
+        <h3>Sommaire</h3>
+        <ol>
+          <li><a href="#vue-ensemble">Vue d'ensemble des 3 manches</a></li>
+          <li><a href="#materiel">Matériel et adaptation à l'effectif</a></li>
+          <li><a href="#m1">Manche 1 — L'inscription</a></li>
+          <li><a href="#m2">Manche 2 — Le ciblage</a></li>
+          <li><a href="#comptage">Comptage des points</a></li>
+          <li><a href="#m3">Manche 3 — La confiscation</a></li>
+          <li><a href="#conseils">Conseils d'animation</a></li>
+        </ol>
+      </nav>
+
+      <!-- Vue d'ensemble -->
+      <div class="rules-block" id="vue-ensemble">
+        <h3>1. Vue d'ensemble</h3>
+        <div class="retro-table-wrap">
+          <table class="retro-table">
+            <thead>
+              <tr><th>Manche</th><th>Durée</th><th>Rôle élève</th><th>Mécanique</th><th>Ce qui est vécu</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>M1 — L'inscription</strong></td><td>12 min</td><td>Utilisateur</td><td>Uno classique + achat de Services</td><td>« J'ai cédé toutes mes données pour des petits services. »</td></tr>
+              <tr><td><strong>M2 — Le ciblage</strong></td><td>12-15 min</td><td>Annonceur</td><td>Rami : combos de 4 cartes → Profil (6 pts)</td><td>« Mes données valent des profils. »</td></tr>
+              <tr><td><strong>Comptage</strong></td><td>2 min</td><td>—</td><td>Service × 3 pts + Profil × 6 pts</td><td>« Je vois enfin qui a gagné. »</td></tr>
+              <tr><td><strong>M3 — La confiscation</strong></td><td>5 min</td><td>—</td><td>Théâtre + révélation</td><td>« L'IA m'a tout pris pour s'entraîner. »</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Système de points</strong> · Service IA = 3 pts · Profil = 6 pts · Jetons = 0 pt (monnaie M1 uniquement). Comme un Profil vaut le double d'un Service, le rôle d'annonceur en M2 rapporte structurellement plus que celui d'utilisateur en M1.</p>
+      </div>
+
+      <!-- Matériel -->
+      <div class="rules-block" id="materiel">
+        <h3>2. Matériel et adaptation à l'effectif</h3>
+        <h4>Kit complet (effectif max, 16-18 élèves)</h4>
+        <ul>
+          <li><strong>108 cartes Données</strong> (18 noms × 6 plateformes)</li>
+          <li><strong>22 cartes Spéciales Uno</strong> (M1 uniquement) — Pop-up CGU × 5, Synchronisation × 5, Notification push × 5, Dark pattern × 4, Fuite de données × 3</li>
+          <li><strong>6 cartes Événement M2</strong> — Data broker × 3, IA prédictive × 3</li>
+          <li><strong>24 cartes Service IA</strong> (8 types × 3)</li>
+          <li><strong>48 cartes Profil</strong> (16 profils × 3)</li>
+          <li><strong>~80 jetons Capital-données</strong></li>
+        </ul>
+
+        <h4>Adaptation du deck à l'effectif</h4>
+        <div class="retro-table-wrap">
+          <table class="retro-table">
+            <thead><tr><th>Effectif</th><th>Plateformes utilisées</th><th>Cartes Données</th><th>Deck M1 total</th></tr></thead>
+            <tbody>
+              <tr><td>5-8 élèves</td><td>3 (ex. YouTube, Spotify, Snapchat)</td><td>54</td><td>76</td></tr>
+              <tr><td>9-12 élèves</td><td>4 (+ Instagram)</td><td>72</td><td>94</td></tr>
+              <tr><td>13-15 élèves</td><td>5 (+ TikTok)</td><td>90</td><td>112</td></tr>
+              <tr><td>16-18 élèves</td><td>6 (toutes)</td><td>108</td><td>130</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Imprimer les cartes Données par <strong>paquet de plateforme</strong> permet de retirer simplement les plateformes inutilisées avant la partie.</p>
+      </div>
+
+      <!-- M1 -->
+      <div class="rules-block" id="m1">
+        <h3>3. Manche 1 — L'inscription (12 min)</h3>
+        <p><em>Format Uno classique. Tous les élèves sont utilisateurs. Une seule pile centrale, une seule pioche. L'enseignant tient la banque (jetons + catalogue Service IA).</em></p>
+
+        <h4>Préparation (2 min)</h4>
+        <ul>
+          <li>Mélanger le deck Données + les 22 Spéciales Uno</li>
+          <li>Distribuer <strong>7 cartes</strong> à chaque utilisateur</li>
+          <li>Retourner la première carte = carte d'appel</li>
+          <li>Préparer un tas Spéciales vide à côté de la pile centrale</li>
+          <li>L'enseignant étale les 24 Service IA face visible (catalogue)</li>
+        </ul>
+
+        <h4>Règle du tour (sens horaire, rythme rapide)</h4>
+        <p>À son tour, chaque utilisateur choisit <strong>une</strong> action :</p>
+        <ol>
+          <li><strong>Se défausser</strong> — pose une carte Donnée qui matche par <em>plateforme OU catégorie</em> (→ 1 jeton) OU une carte Spéciale (0 jeton sauf Dark pattern).</li>
+          <li><strong>Acheter un Service IA</strong> — paie 3 jetons, choisit 1 carte dans le catalogue.</li>
+          <li><strong>Piocher</strong> — pioche 1 carte, passe son tour (choix libre même si on pouvait jouer).</li>
+        </ol>
+
+        <h4>Effets des cartes Spéciales</h4>
+        <ul>
+          <li><strong>🎁 Pop-up CGU</strong> — le joueur suivant pose 2 cartes Données en chaîne, sans recevoir de jeton.</li>
+          <li><strong>🔄 Synchronisation</strong> — le poseur choisit la nouvelle plateforme exigée.</li>
+          <li><strong>🔔 Notification push</strong> — le poseur enchaîne 2 cartes Données (1 jeton par carte).</li>
+          <li><strong>🕳️ Dark pattern</strong> — le poseur joue ensuite la Donnée de son choix, sans condition, et reçoit 1 jeton.</li>
+          <li><strong>💀 Fuite de données</strong> — tous les joueurs montrent leurs cartes 10 secondes ; action bonus, le tour continue.</li>
+        </ul>
+
+        <h4>Fin de manche</h4>
+        <p>Au signal du chrono OU dès qu'un utilisateur a vidé sa main. Mini-bilan oral : combien de Services et combien de jetons restants ? <strong>Pas de calcul de points encore</strong> — on enchaîne directement sur M2.</p>
+      </div>
+
+      <!-- M2 -->
+      <div class="rules-block" id="m2">
+        <h3>4. Manche 2 — Le ciblage (12-15 min)</h3>
+        <p><em>Tous les élèves deviennent annonceurs. Mécanique Rami : piocher, constituer des combos de 4 Données pour remporter des cartes Profil (6 pts). Les jetons de M1 sont mis de côté, ils ne servent plus.</em></p>
+
+        <h4>Préparation (3 min)</h4>
+        <ul>
+          <li>Rassembler toutes les cartes Données restantes</li>
+          <li>Retirer les 22 Spéciales Uno, ajouter les 6 cartes Événement M2</li>
+          <li>Mélanger, pioche face cachée + défausse de départ</li>
+          <li>Distribuer 7 cartes Données par annonceur</li>
+        </ul>
+
+        <h4>Tour de jeu</h4>
+        <ol>
+          <li><strong>Piocher</strong> 1 carte (pile face cachée OU défausse, sauf Événement).</li>
+          <li><strong>Poser un combo</strong> de 4 cartes (optionnel) → Profil (6 pts).</li>
+          <li><strong>Défausser</strong> 1 carte face visible.</li>
+        </ol>
+        <p>Pour les combos, <strong>seul le nom de la donnée compte</strong>, pas la plateforme.</p>
+
+        <h4>Événements</h4>
+        <ul>
+          <li><strong>🤝 Data broker</strong> — échange 2 cartes avec l'annonceur de son choix.</li>
+          <li><strong>🔮 IA prédictive</strong> — révèle les 3 premières cartes de la pioche, en garde 1, remet les 2 autres.</li>
+        </ul>
+
+        <h4>Deux versions</h4>
+        <ul>
+          <li><strong>Version A — Profils communs (simple)</strong> · 6 cartes Profil face visible au centre, course pour les compléter.</li>
+          <li><strong>Version B — Profils secrets (stratégique)</strong> · 2 cartes Profil distribuées à chaque annonceur, à garder cachées. Le bluff devient central.</li>
+        </ul>
+      </div>
+
+      <!-- Comptage -->
+      <div class="rules-block" id="comptage">
+        <h3>5. Comptage des points (2 min)</h3>
+        <p>Chaque élève fait son calcul à voix haute :</p>
+        <ul>
+          <li><strong>Services IA × 3 pts</strong> (accumulés en M1)</li>
+          <li><strong>Profils × 6 pts</strong> (remportés en M2)</li>
+          <li>Les jetons ne comptent pas</li>
+        </ul>
+        <p>L'enseignant note le <strong>classement au tableau</strong>. Laisser le gagnant savourer son titre 30 secondes avant d'enchaîner sur M3. <em>Plus le score est ancré, plus la confiscation choque.</em></p>
+      </div>
+
+      <!-- M3 -->
+      <div class="rules-block" id="m3">
+        <h3>6. Manche 3 — La confiscation (5 min)</h3>
+        <p><em>Pas de nouveau jeu actif. L'enseignant entre en scène comme une entreprise d'IA. C'est le moment de la bascule pédagogique.</em></p>
+
+        <h4>Mise en scène</h4>
+        <p>L'enseignant se lève, prend une posture solennelle, et déclare quelque chose comme :</p>
+        <blockquote class="retro-quote" style="margin: 1.25rem 0;">« Bonjour. Je représente OpenAI. Aussi Meta. Aussi Google, ByteDance, Anthropic, xAI. Bref : les entreprises qui construisent les IA que vous utilisez tous les jours. Je suis ici pour récupérer ce qui m'appartient. »</blockquote>
+
+        <p>Il fait alors le tour de la table et prend <strong>TOUT</strong> ce qui se trouve devant les élèves :</p>
+        <ul>
+          <li>Toutes les cartes Service IA (les « trophées »)</li>
+          <li>Toutes les cartes Profil — complétées ou en main</li>
+          <li>Toutes les cartes Données restantes</li>
+          <li>Tous les jetons</li>
+        </ul>
+        <p>Il les rassemble en un <strong>énorme tas au tableau</strong>, sous une affiche écrite à la craie : <strong>« Données d'entraînement de mon IA »</strong>.</p>
+
+        <h4>Le retournement</h4>
+        <p>L'enseignant pointe les Services IA confisqués et révèle, carte par carte, leur lien avec les données collectées :</p>
+        <ul>
+          <li><strong>Filtre beauté</strong> → entraîné avec les photos et selfies cédés</li>
+          <li><strong>Chatbot devoirs</strong> → entraîné en lisant les conversations</li>
+          <li><strong>Génération d'image</strong> → entraînée sur les photos publiées</li>
+        </ul>
+        <blockquote class="retro-quote" style="margin: 1.25rem 0;">« Voilà ce que c'est, une IA générative. Pas de la magie. Pas un miracle. <strong>Vos données. Vos profils. Vos services. Tout vous a été repris.</strong> Et le classement au tableau ? Il ne veut plus rien dire — parce qu'au final, c'est moi qui ai tout. »</blockquote>
+
+        <h4>Bascule vers le débrief</h4>
+        <p>« Maintenant — on va parler de ce qui vient de se passer. »</p>
+      </div>
+
+      <!-- Conseils -->
+      <div class="rules-block" id="conseils">
+        <h3>7. Conseils d'animation</h3>
+        <h4>Prise en main</h4>
+        <ul>
+          <li>Faire une partie d'essai <strong>sans M3</strong> avant de l'utiliser en classe — pour s'approprier le rythme et les Spéciales.</li>
+          <li>Faire <strong>lire les cartes par les élèves</strong> à voix haute (cela renforce le contenu et la dynamique).</li>
+        </ul>
+        <h4>Sur le tempo</h4>
+        <ul>
+          <li><strong>M1</strong> · relancer toutes les 15 secondes si ça traîne — l'effet Uno doit être ressenti.</li>
+          <li><strong>M2</strong> · compter à voix haute les dernières secondes des tours longs crée la tension.</li>
+          <li><strong>M3</strong> · prendre son temps. Lent, déclaration par déclaration. Aucune précipitation.</li>
+        </ul>
+        <h4>Sur la bascule</h4>
+        <ul>
+          <li><strong>Ne pas révéler entre M1 et M2</strong> — laisser l'idée que les Services achetés sont une récompense.</li>
+          <li><strong>Faire le comptage entre M2 et M3</strong> — le classement annoncé fait monter la fierté avant que M3 ne la balaie.</li>
+          <li><strong>Marquer la bascule de M3</strong> par un changement physique : se lever, baisser la voix, sortir une affiche préparée.</li>
+        </ul>
+      </div>
+
+      <div class="text-center mt-2">
+        <a href="telechargements.html" class="retro-btn">→ Télécharger le matériel</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="retro-footer">
+    <p class="retro-footer-ornament">❧</p>
+    <p class="retro-footer-credit">
+      Made by <a href="https://www.linkedin.com/in/antonin-bareau/" target="_blank" rel="noopener noreferrer" class="retro-footer-link">Antonin Bareau</a>
+    </p>
+    <p class="retro-footer-licence">
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" class="retro-footer-link">Licence Creative Commons : CC-BY-NC-SA</a>
+    </p>
+  </footer>
+
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Manuel enseignant — Le marché aux données</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;700&family=Inter:wght@400;600&display=swap');
+
+  :root {
+    --ink:    #0D1617;
+    --paper:  #F2EFE6;
+    --teal:   #127676;   /* lit comme gris foncé en N&B */
+    --orange: #C95416;   /* lit comme gris moyen en N&B */
+    --grey:   #5a5a5a;
+  }
+
+  @page {
+    size: A4;
+    margin: 22mm 18mm 22mm 18mm;
+    @bottom-center {
+      content: "Le marché aux données  ·  Manuel enseignant  ·  page " counter(page) " / " counter(pages);
+      font-family: 'Oswald', sans-serif;
+      font-size: 8pt;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+    @top-right {
+      content: "❧";
+      color: var(--teal);
+      font-size: 11pt;
+    }
+  }
+
+  @page :first {
+    @bottom-center { content: none; }
+    @top-right { content: none; }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--paper);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Anton', 'Oswald', sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+
+  h2 {
+    font-size: 19pt;
+    margin-top: 1.5em;
+    margin-bottom: 0.6em;
+    padding-bottom: 0.3em;
+    border-bottom: 1.5pt solid var(--ink);
+    page-break-after: avoid;
+  }
+  h2::before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 0.4em;
+    background: var(--ink);
+    transform: rotate(45deg) translateY(-2px);
+    vertical-align: middle;
+  }
+
+  h3 {
+    font-size: 14pt;
+    margin-top: 1.3em;
+    margin-bottom: 0.5em;
+    color: var(--ink);
+    page-break-after: avoid;
+  }
+  h3::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2.5pt;
+    background: var(--orange);
+    margin-top: 0.35em;
+  }
+
+  h4 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 11pt;
+    margin-top: 1.2em;
+    margin-bottom: 0.4em;
+    letter-spacing: 0.05em;
+    page-break-after: avoid;
+  }
+
+  p { margin: 0.55em 0; orphans: 3; widows: 3; }
+  strong { font-weight: 700; }
+  em { font-style: italic; }
+
+  ul, ol { padding-left: 1.4em; margin: 0.5em 0 0.8em; }
+  li { margin-bottom: 0.25em; }
+
+  /* ====== Couverture ====== */
+  .cover {
+    page-break-after: always;
+    padding: 22mm 12mm;
+    position: relative;
+    min-height: 250mm;
+    border: 2.5pt solid var(--ink);
+    margin: 0;
+  }
+  .cover-inner {
+    border: 1pt solid var(--orange);
+    height: 100%;
+    padding: 18mm 14mm;
+    position: relative;
+    min-height: 230mm;
+  }
+  .cover-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    color: var(--ink);
+    margin-bottom: 6mm;
+  }
+  .cover-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 56pt;
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    margin: 0 0 6mm 0;
+  }
+  .cover-rule {
+    width: 50mm;
+    height: 3pt;
+    background: var(--orange);
+    margin: 8mm 0;
+  }
+  .cover-sub {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-size: 13pt;
+    color: var(--ink);
+    max-width: 130mm;
+    line-height: 1.4;
+    margin-bottom: 14mm;
+  }
+  .cover-meta {
+    font-family: 'Oswald', sans-serif;
+    font-size: 9.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--grey);
+    border-top: 1pt solid var(--ink);
+    padding-top: 4mm;
+    margin-top: auto;
+  }
+  .cover-meta span { display: inline-block; margin-right: 8mm; }
+
+  /* Ornement floral simplifié pour la couverture, lisible en N&B */
+  .cover-flourish {
+    position: absolute;
+    width: 50mm; height: 50mm;
+    color: var(--teal);
+    opacity: 0.7;
+  }
+  .cover-flourish.tr { top: 6mm; right: 6mm; transform: scaleX(-1); }
+  .cover-flourish.bl { bottom: 6mm; left: 6mm; transform: scaleY(-1); }
+
+  .cover-bottom {
+    position: absolute;
+    bottom: 18mm;
+    left: 14mm;
+    right: 14mm;
+    font-family: 'Oswald', sans-serif;
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--grey);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* ====== Sommaire ====== */
+  .toc {
+    page-break-after: always;
+  }
+  .toc h2 { margin-top: 0; }
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    counter-reset: toc;
+  }
+  .toc li {
+    counter-increment: toc;
+    padding: 0.5em 0;
+    border-bottom: 0.5pt dotted var(--grey);
+    font-family: 'Oswald', sans-serif;
+    font-size: 11.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .toc li::before {
+    content: counter(toc, decimal-leading-zero) ".";
+    color: var(--orange);
+    font-weight: 700;
+    margin-right: 0.8em;
+  }
+
+  /* ====== Tableaux ====== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.8em 0 1.2em;
+    font-size: 9.5pt;
+    page-break-inside: avoid;
+  }
+  th, td {
+    border: 0.6pt solid var(--ink);
+    padding: 5pt 7pt;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 9pt;
+  }
+  tr:nth-child(even) td { background: rgba(13,22,23,0.04); }
+
+  /* ====== Callouts ====== */
+  .callout {
+    border-left: 3pt solid var(--orange);
+    padding: 0.5em 0.9em;
+    margin: 0.8em 0;
+    background: rgba(13,22,23,0.03);
+    font-style: italic;
+    font-size: 10pt;
+    page-break-inside: avoid;
+  }
+  .callout strong { font-style: normal; }
+
+  blockquote {
+    margin: 0.8em 0;
+    padding: 0.6em 1em;
+    border-left: 3pt solid var(--ink);
+    background: rgba(13,22,23,0.05);
+    font-style: italic;
+    page-break-inside: avoid;
+  }
+
+  /* ====== Séparateur ornemental ====== */
+  .sep {
+    text-align: center;
+    margin: 1.5em 0;
+    color: var(--teal);
+    font-size: 13pt;
+    letter-spacing: 0.4em;
+  }
+  .sep::before, .sep::after {
+    content: "—";
+    margin: 0 0.6em;
+    color: var(--ink);
+    opacity: 0.5;
+  }
+
+  /* ====== Encadré pédagogique (cartes spéciales) ====== */
+  .special-list { list-style: none; padding: 0; }
+  .special-list li {
+    border: 0.6pt solid var(--ink);
+    border-radius: 8pt 2pt 8pt 2pt;
+    padding: 6pt 10pt;
+    margin-bottom: 6pt;
+    page-break-inside: avoid;
+  }
+  .special-list .sym {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1pt solid var(--orange);
+    padding-bottom: 1pt;
+    margin-right: 0.5em;
+  }
+
+  /* ====== Bloc manche (carte de niveau 1 fictive) ====== */
+  .manche {
+    border: 1pt solid var(--ink);
+    border-radius: 14pt 4pt 14pt 4pt;
+    padding: 10pt 14pt;
+    margin: 1em 0 1.5em;
+    box-shadow: inset 0 0 0 1.5pt var(--paper), inset 0 0 0 2.5pt rgba(13,22,23,0.15);
+    position: relative;
+    page-break-inside: avoid;
+  }
+  .manche .tag {
+    position: absolute;
+    top: -10pt;
+    left: 16pt;
+    background: var(--paper);
+    padding: 0 8pt;
+    font-family: 'Oswald', sans-serif;
+    font-size: 9pt;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: 0.6pt solid var(--ink);
+  }
+  .manche h3 { margin-top: 0.3em; }
+
+  /* ====== Bandeau de section principale ====== */
+  .section-band {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 8mm 14mm;
+    margin: 0 -18mm 8mm -18mm;
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .section-band .num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10pt;
+    letter-spacing: 0.3em;
+    color: rgba(242,239,230,0.7);
+    display: block;
+    margin-bottom: 2mm;
+  }
+  .section-band .ttl {
+    font-size: 26pt;
+    line-height: 1;
+  }
+
+  .lead {
+    font-size: 11pt;
+    font-style: italic;
+    color: var(--ink);
+    max-width: 150mm;
+    margin: 0.4em 0 1em;
+  }
+
+  /* page break helpers */
+  .pb { page-break-before: always; }
+  .keep { page-break-inside: avoid; }
+
+  /* ornement de fin */
+  .end {
+    text-align: center;
+    margin-top: 3em;
+    color: var(--teal);
+    font-size: 20pt;
+  }
+  .end::before { content: "❧"; }
+
+</style>
+</head>
+<body>
+
+<!-- ============ COUVERTURE ============ -->
+<section class="cover">
+  <svg class="cover-flourish tr" viewBox="0 0 100 100" fill="currentColor"><path d="M5,95 Q5,5 95,5 Q70,5 55,20 C40,35 45,55 30,65 Q15,75 5,95 Z" opacity="0.25"/><path d="M10,90 Q10,25 75,10" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="75" cy="10" r="6"/><circle cx="55" cy="22" r="4"/><circle cx="38" cy="38" r="3"/><path d="M20,80 Q25,60 40,55 Q55,50 50,35" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="80" r="5"/><path d="M60,30 Q70,20 80,25 Q75,35 60,30 Z"/></svg>
+  <svg class="cover-flourish bl" viewBox="0 0 100 100" fill="currentColor"><path d="M5,95 Q5,5 95,5 Q70,5 55,20 C40,35 45,55 30,65 Q15,75 5,95 Z" opacity="0.25"/><path d="M10,90 Q10,25 75,10" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="75" cy="10" r="6"/><circle cx="55" cy="22" r="4"/><circle cx="38" cy="38" r="3"/><path d="M20,80 Q25,60 40,55 Q55,50 50,35" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="80" r="5"/><path d="M60,30 Q70,20 80,25 Q75,35 60,30 Z"/></svg>
+
+  <div class="cover-inner">
+    <p class="cover-eyebrow">Manuel enseignant</p>
+    <h1 class="cover-title">Le marché<br>aux<br>données</h1>
+    <div class="cover-rule"></div>
+    <p class="cover-sub">Un jeu de cartes pour faire vivre l'économie des données et l'entraînement des IA — pas pour l'expliquer.</p>
+
+    <div class="cover-meta">
+      <span>FES 6e année</span>
+      <span>Module 1</span>
+      <span>3 manches</span>
+      <span>30 — 45 min</span>
+      <span>5 — 18 élèves</span>
+    </div>
+
+    <div class="cover-bottom">
+      <span>Antonin Bareau · CRBTP · Bruxelles</span>
+      <span>CC-BY-NC-SA</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOMMAIRE ============ -->
+<section class="toc">
+  <h2>Sommaire</h2>
+  <ol>
+    <li><span>Présentation générale</span></li>
+    <li><span>Composition du jeu</span></li>
+    <li><span>Règles des trois manches</span></li>
+    <li><span>Conseils d'animation</span></li>
+    <li><span>Ce qui compte vraiment</span></li>
+  </ol>
+
+  <div class="sep">❧</div>
+  <p class="lead">Ce manuel rassemble tout ce qu'il faut pour mener une partie en classe : la présentation, les règles synthétiques des trois manches et les conseils de pilotage. La règle complète, plus détaillée, vit en parallèle dans le document <em>Jeu — Le marché aux données</em>.</p>
+</section>
+
+<!-- ============ 1. PRÉSENTATION ============ -->
+<section class="pb">
+  <div class="section-band">
+    <span class="num">01</span>
+    <span class="ttl">Présentation générale</span>
+  </div>
+
+  <p><strong>Le marché aux données</strong> fait vivre aux élèves ce que les plateformes numériques font structurellement&nbsp;: collecter leurs données, les agréger en profils, puis s'en servir pour entraîner des IA — sans que personne n'ait vraiment dit oui.</p>
+
+  <p>Le jeu se joue en <strong>3 manches qui s'empilent</strong>&nbsp;:</p>
+  <ul>
+    <li><strong>M1</strong> — les élèves sont des <em>utilisateurs</em> qui cèdent leurs données pour obtenir des petits services.</li>
+    <li><strong>M2</strong> — ils deviennent des <em>annonceurs</em> qui combinent ces données pour construire des profils ciblés.</li>
+    <li><strong>M3</strong> — l'enseignant entre en scène comme une <em>entreprise d'IA</em> et confisque tout.</li>
+  </ul>
+
+  <p>Toute la classe joue ensemble autour d'une grande table.</p>
+
+  <div class="callout"><strong>L'effet pédagogique repose sur la surprise de M3</strong> — ne rien révéler avant. La force du jeu tient à ce retournement&nbsp;: la révélation perd 80 % de son impact si elle est anticipée.</div>
+</section>
+
+<!-- ============ 2. COMPOSITION ============ -->
+<section class="pb">
+  <div class="section-band">
+    <span class="num">02</span>
+    <span class="ttl">Composition du jeu</span>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Composant</th><th>Quantité (max)</th><th>Rôle</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Cartes Données</strong></td><td>108</td><td>Monnaie de base — se défaussent en M1, forment des combos en M2</td></tr>
+      <tr><td><strong>Cartes Spéciales Uno</strong></td><td>22</td><td>Perturbent M1 (Pop-up CGU, Dark pattern, etc.)</td></tr>
+      <tr><td><strong>Cartes Événement M2</strong></td><td>6</td><td>Remplacent les Spéciales en M2 (Data broker, IA prédictive)</td></tr>
+      <tr><td><strong>Cartes Service IA</strong></td><td>24</td><td>Achetées en M1 contre 3 jetons — trophées qui semblent valoir quelque chose</td></tr>
+      <tr><td><strong>Cartes Profil</strong></td><td>48</td><td>Remportées en M2 en combinant 4 Données — valent 6 pts chacune</td></tr>
+      <tr><td><strong>Jetons Capital-données</strong></td><td>~80</td><td>Monnaie de M1 uniquement — ne valent aucun point</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>Total&nbsp;:</strong> 208 cartes à effectif maximum (16-18 élèves). Adapter le nombre de cartes Données à l'effectif (voir §4 du document de règles complètes).</p>
+
+  <h3>Les cartes Données — deux axes de matching</h3>
+  <p>Chaque carte combine <strong>une plateforme</strong> (YouTube, Spotify, TikTok, Instagram, WhatsApp, Snapchat) et <strong>une catégorie</strong> (Identité, Consommation, Mouvement, Expression, Relation, Comportement).</p>
+  <p>En M1, on peut poser une carte si elle partage <strong>la même plateforme OU la même catégorie</strong> que la carte d'appel.</p>
+</section>
+
+<!-- ============ 3. RÈGLES ============ -->
+<section class="pb">
+  <div class="section-band">
+    <span class="num">03</span>
+    <span class="ttl">Règles des trois manches</span>
+  </div>
+
+  <h3>Avant de commencer</h3>
+  <p>Distribuer <strong>7 cartes Données</strong> à chaque élève. Retourner une carte au centre (carte d'appel). Étaler les <strong>24 cartes Service IA face visible</strong> devant soi (catalogue).</p>
+
+  <div class="manche">
+    <span class="tag">Manche 1 · 12 min</span>
+    <h3>L'inscription</h3>
+    <p class="lead">Chaque élève est un utilisateur. Il pose des cartes Données pour recevoir des jetons, et peut acheter des Services IA avec ces jetons.</p>
+
+    <h4>Tour de jeu (sens horaire)</h4>
+    <p>Chaque élève choisit <strong>une</strong> action&nbsp;:</p>
+    <ol>
+      <li><strong>Se défausser</strong> — poser une carte Donnée qui matche la carte d'appel (même plateforme ou même catégorie) → reçoit <strong>1 jeton</strong>. Ou poser une carte Spéciale (sans condition) → 0 jeton, effet immédiat.</li>
+      <li><strong>Acheter un Service IA</strong> — payer <strong>3 jetons</strong> à la banque → choisir une carte Service IA dans le catalogue.</li>
+      <li><strong>Piocher</strong> — prendre 1 carte et passer son tour (choix libre, même si on pouvait jouer).</li>
+    </ol>
+
+    <h4>Effets des cartes Spéciales</h4>
+    <ul class="special-list">
+      <li><span class="sym">🎁 Pop-up CGU</span> — le joueur suivant doit poser 2 cartes en chaîne, sans recevoir de jeton.</li>
+      <li><span class="sym">🔄 Synchronisation</span> — le poseur choisit la nouvelle plateforme exigée par la pile.</li>
+      <li><span class="sym">🔔 Notification push</span> — le poseur enchaîne 2 cartes Données (1 jeton chacune).</li>
+      <li><span class="sym">🕳️ Dark pattern</span> — le poseur pose ensuite la Donnée de son choix sans condition → 1 jeton.</li>
+      <li><span class="sym">💀 Fuite de données</span> — tous montrent leurs cartes 10 secondes (action bonus, ne consomme pas le tour).</li>
+    </ul>
+
+    <h4>Fin</h4>
+    <p>Au chronomètre ou dès qu'un élève vide sa main.</p>
+    <div class="callout"><strong>Mini-bilan à voix haute</strong> : <em>« Combien de Services IA chacun a-t-il achetés ? »</em> — ne pas encore calculer les points.</div>
+  </div>
+
+  <div class="manche">
+    <span class="tag">Manche 2 · 12 à 15 min</span>
+    <h3>Le ciblage</h3>
+    <p class="lead">Tous les élèves deviennent annonceurs. Objectif&nbsp;: réunir 4 cartes Données correspondant à un profil pour remporter la carte Profil (6 pts).</p>
+
+    <h4>Préparation</h4>
+    <p>Récupérer toutes les cartes Données → retirer les 22 Spéciales Uno → ajouter les 6 cartes Événement M2 → mélanger → redistribuer 7 cartes à chaque élève. Les jetons restants sont mis de côté — ils ne servent plus.</p>
+
+    <h4>Tour de jeu</h4>
+    <ol>
+      <li>Piocher 1 carte (pioche cachée ou défausse visible — pas une carte Événement).</li>
+      <li>Poser un combo (optionnel)&nbsp;: si on a les 4 Données d'un profil, les déposer → remporter la carte Profil.</li>
+      <li>Défausser 1 carte.</li>
+    </ol>
+
+    <h4>Deux versions au choix</h4>
+    <ul>
+      <li><strong>Version A — plus simple</strong> : 6 cartes Profil visibles au centre, accessibles à tous. Course&nbsp;: le premier qui complète gagne.</li>
+      <li><strong>Version B — plus stratégique</strong> : chaque élève reçoit 2 cartes Profil secrètes à compléter. Bluff possible.</li>
+    </ul>
+
+    <div class="callout">Seul le <strong>nom</strong> de la donnée compte pour les combos — pas la plateforme. Un « Âge / TikTok » et un « Âge / Spotify » comptent tous deux comme « Âge ».</div>
+
+    <h4>Fin</h4>
+    <p>Au chronomètre (10 min de jeu actif).</p>
+  </div>
+
+  <div class="manche keep">
+    <span class="tag">Comptage · 2 min</span>
+    <h3>Comptage des points</h3>
+    <p>Chaque élève annonce à voix haute&nbsp;:</p>
+    <ul>
+      <li>Cartes Service IA <strong>× 3 pts</strong></li>
+      <li>Cartes Profil <strong>× 6 pts</strong></li>
+    </ul>
+    <p>Inscrire le classement au tableau.</p>
+    <div class="callout"><strong>Laisser le gagnant savourer 30 secondes.</strong> C'est essentiel pour que M3 fasse son effet — plus le score est ancré, plus la confiscation choque.</div>
+  </div>
+
+  <div class="manche">
+    <span class="tag">Manche 3 · 5 min · cérémonielle</span>
+    <h3>La confiscation</h3>
+    <p class="lead"><strong>Pas de nouveau jeu. C'est du théâtre.</strong></p>
+
+    <h4>Mise en scène</h4>
+    <p>L'enseignant se lève, prend une posture solennelle&nbsp;:</p>
+    <blockquote>« Bonjour. Je représente OpenAI. Aussi Meta. Aussi Google, ByteDance, Anthropic. Les entreprises qui construisent les IA que vous utilisez tous les jours. Je suis ici pour récupérer ce qui m'appartient. »</blockquote>
+
+    <p>Il fait le tour de la table et confisque <strong>tout</strong>&nbsp;: Services IA, cartes Profil, cartes Données, jetons. Il rassemble le tout en un grand tas au tableau, sous l'inscription <strong>« Données d'entraînement de mon IA »</strong>.</p>
+
+    <h4>Le retournement</h4>
+    <p>Puis il pointe les Services IA confisqués un par un&nbsp;:</p>
+    <blockquote>« Filtre beauté ? Je l'entraîne avec vos photos. Vos visages. »<br>
+    « Chatbot devoirs ? Il a lu toutes vos conversations. »<br>
+    « Génération d'image ? Elle a appris avec toutes les photos que vous m'avez données. »</blockquote>
+
+    <p>Il conclut&nbsp;:</p>
+    <blockquote>« Voilà ce qu'est une IA générative. Pas de la magie. Vos données. Vos profils. Et le classement au tableau ? Il ne veut plus rien dire — parce qu'au final, c'est moi qui ai tout. »<br>
+    « Vous êtes 18 dans cette classe. Imaginez 4 milliards de personnes qui font ça pendant 20 ans. »</blockquote>
+  </div>
+</section>
+
+<!-- ============ 4. CONSEILS ============ -->
+<section class="pb">
+  <div class="section-band">
+    <span class="num">04</span>
+    <span class="ttl">Conseils d'animation</span>
+  </div>
+
+  <h3>Prise en main — jouer avant de jouer avec enjeu</h3>
+  <p><strong>La première partie sert à apprendre le jeu, pas à faire la révélation.</strong></p>
+  <p>Faire une ou deux parties d'essai en classe ou seul, <strong>sans dérouler la M3</strong>&nbsp;: l'effet de la confiscation est unique — le gâcher lors d'un test reviendrait à en priver les élèves.</p>
+  <p>Ensuite, pour la <strong>vraie partie avec les élèves</strong>&nbsp;:</p>
+  <ul>
+    <li>Annoncer un enjeu concret en début de séance&nbsp;: <em>« Le gagnant reçoit un paquet de bonbons. »</em></li>
+    <li>Inscrire le classement au tableau après le comptage — sans rien dire.</li>
+    <li>Dérouler M3 dans la foulée.</li>
+  </ul>
+  <div class="callout">L'enjeu matériel — même modeste — rend la confiscation physiquement palpable. La déception est pédagogique.</div>
+
+  <h3>Faire lire les cartes par les élèves</h3>
+  <p>Les cartes Données, Spéciales et Service IA portent un <strong>texte explicatif au verso</strong> (ou en bas de carte). Ces textes sont des mini-capsules pédagogiques.</p>
+  <p>À chaque carte posée ou achetée, inviter l'élève concerné à lire le texte à voix haute&nbsp;:</p>
+  <ul>
+    <li><em>« Tu viens de poser ‹ Messages privés › — lis ce qui est écrit en bas. »</em></li>
+    <li><em>« Tu achètes le Filtre beauté — lis comment il a été entraîné. »</em></li>
+  </ul>
+  <p>Cela ralentit légèrement le rythme, mais produit des moments de réalisation collective qui nourrissent le débrief.</p>
+
+  <h3>Entrecouper de brèves explications pédagogiques</h3>
+  <p>Le jeu produit des situations qui appellent des arrêts courts&nbsp;:</p>
+  <table>
+    <thead><tr><th style="width: 32%;">Moment</th><th>Ce qu'on peut dire</th></tr></thead>
+    <tbody>
+      <tr><td>Après une carte 🎁 Pop-up CGU</td><td><em>« Dans la vraie vie, c'est exactement ça : tu cliques ‹ J'accepte › sans lire — et tu viens de céder deux données de plus. »</em></td></tr>
+      <tr><td>Après une 🕳️ Dark pattern</td><td><em>« C'est ce qu'on appelle un dark pattern : l'interface est conçue pour que tu acceptes ce que tu refuserais si c'était clair. »</em></td></tr>
+      <tr><td>Quand un élève accumule des Services</td><td><em>« Regarde ce que tu as obtenu. Regarde combien de données tu as cédées pour ça. »</em></td></tr>
+      <tr><td>En M2, quand un profil est complété</td><td><em>« ‹ Ado-conso › — Âge + Marques + Centres d'intérêt + Engagement. C'est exactement ce que TikTok vend aux annonceurs. »</em></td></tr>
+    </tbody>
+  </table>
+  <p>Rester bref&nbsp;: <strong>2 phrases maximum</strong>. Le jeu continue immédiatement après.</p>
+
+  <h3>Tenir le rythme</h3>
+  <ul>
+    <li><strong>M1</strong>&nbsp;: si ça traîne, relancer toutes les 15 secondes (<em>« au suivant »</em>). L'effet Uno doit être ressenti.</li>
+    <li><strong>M2</strong>&nbsp;: compter à voix haute lors des dernières secondes crée de la tension.</li>
+    <li><strong>M3</strong>&nbsp;: prendre son temps. La confiscation doit être lente, déclaration par déclaration. Aucune précipitation — c'est le moment qui justifie tout le reste.</li>
+  </ul>
+
+  <h3>Adapter à l'effectif</h3>
+  <table>
+    <thead><tr><th>Effectif</th><th>Plateformes utilisées</th><th>Cartes Données</th></tr></thead>
+    <tbody>
+      <tr><td>5-8 élèves</td><td>3</td><td>54</td></tr>
+      <tr><td>9-12 élèves</td><td>4</td><td>72</td></tr>
+      <tr><td>13-15 élèves</td><td>5</td><td>90</td></tr>
+      <tr><td>16-18 élèves</td><td>6 (toutes)</td><td>108</td></tr>
+    </tbody>
+  </table>
+  <p>Imprimer les cartes par <strong>paquet de plateforme</strong> facilite ce retrait. À 15 élèves et plus&nbsp;: désigner un <strong>élève-caissier</strong> pour gérer les jetons et le catalogue Service IA.</p>
+</section>
+
+<!-- ============ 5. CE QUI COMPTE ============ -->
+<section class="pb">
+  <div class="section-band">
+    <span class="num">05</span>
+    <span class="ttl">Ce qui compte vraiment</span>
+  </div>
+
+  <p>Le jeu n'est pas une fin en soi — c'est un <strong>générateur d'expériences</strong> à partir desquelles le débrief construit les concepts.</p>
+
+  <p>L'élève qui a subi trois Pop-up CGU sans jeton comprend le consentement forcé mieux que dix minutes de cours magistral. L'élève qui a gagné le classement et se retrouve avec rien en M3 a vécu dans son corps ce que signifie&nbsp;:</p>
+
+  <blockquote style="font-size: 13pt; font-weight: 600; text-align: center; padding: 1.2em; border-left: none; border-top: 1.5pt solid var(--ink); border-bottom: 1.5pt solid var(--ink); background: transparent; font-style: normal;">
+    « Si c'est gratuit, c'est toi le produit. »
+  </blockquote>
+
+  <p>Le débrief s'appuie sur ces moments vécus — pas sur une restitution abstraite.</p>
+
+  <div class="end"></div>
+
+  <p style="text-align: center; margin-top: 1em; font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.2em; font-size: 9pt; color: var(--grey);">
+    Antonin Bareau · Collège Roi Baudouin · Bruxelles<br>
+    Licence Creative Commons CC-BY-NC-SA 4.0
+  </p>
+</section>
+
+</body>
+</html>
