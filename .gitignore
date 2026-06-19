@@ -5,3 +5,9 @@ Thumbs.db
 *.log
 node_modules/
 .env
+
+# Docs internes au vault — ne pas publier (README.md documente publiquement)
+CLAUDE.md
+AGENTS.md
+SPECS.md
+PLAN.md
