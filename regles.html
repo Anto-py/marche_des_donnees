@@ -61,14 +61,14 @@
               <tr><th>Manche</th><th>Durée</th><th>Rôle élève</th><th>Mécanique</th><th>Ce qui est vécu</th></tr>
             </thead>
             <tbody>
-              <tr><td><strong>M1 — L'inscription</strong></td><td>12 min</td><td>Utilisateur</td><td>Uno classique + achat de Services</td><td>« J'ai cédé toutes mes données pour des petits services. »</td></tr>
-              <tr><td><strong>M2 — Le ciblage</strong></td><td>12-15 min</td><td>Annonceur</td><td>Rami : combos de 2 à 4 cartes → Profil (6 pts)</td><td>« Mes données valent des profils. »</td></tr>
-              <tr><td><strong>Comptage</strong></td><td>2 min</td><td>—</td><td>Service Plateforme × 3 pts + Profil × 6 pts</td><td>« Je vois enfin qui a gagné. »</td></tr>
+              <tr><td><strong>M1 — L'inscription</strong></td><td>12 min</td><td>Utilisateur</td><td>Uno classique : vider sa main rapporte un Service</td><td>« J'ai cédé toutes mes données pour des petits services. »</td></tr>
+              <tr><td><strong>M2 — Le ciblage</strong></td><td>12-15 min</td><td>Annonceur</td><td>Rami : combos de 2 à 4 cartes → Profil (4, 6 ou 8 pts)</td><td>« Mes données valent des profils. »</td></tr>
+              <tr><td><strong>Comptage</strong></td><td>2 min</td><td>—</td><td>Service Plateforme × 3 pts + Profils (4, 6 ou 8 pts)</td><td>« Je vois enfin qui a gagné. »</td></tr>
               <tr><td><strong>M3 — La confiscation</strong></td><td>5 min</td><td>—</td><td>Théâtre + révélation</td><td>« L'IA m'a tout pris pour s'entraîner. »</td></tr>
             </tbody>
           </table>
         </div>
-        <p><strong>Système de points</strong> · Service Plateforme = 3 pts · Profil = 6 pts · Jetons = 0 pt (monnaie M1 uniquement). Comme un Profil vaut le double d'un Service, le rôle d'annonceur en M2 rapporte structurellement plus que celui d'utilisateur en M1.</p>
+        <p><strong>Système de points</strong> · Service Plateforme = 3 pts · Profil = 4 pts (2 données), 6 pts (3 données) ou 8 pts (4 données). Un Service coûte une main entière de données, et un Profil vaut de 1,3 à 2,7 fois un Service : le rôle d'annonceur en M2 rapporte structurellement plus que celui d'utilisateur en M1.</p>
       </div>
 
       <!-- Matériel -->
@@ -77,11 +77,10 @@
         <h4>Kit complet (effectif max, 16-18 élèves)</h4>
         <ul>
           <li><strong>108 cartes Données</strong> (18 noms × 6 plateformes)</li>
-          <li><strong>22 cartes Spéciales Uno</strong> (M1 uniquement) — Pop-up CGU × 5, Synchronisation × 5, Notification push × 5, Dark pattern × 4, Fuite de données × 3</li>
+          <li><strong>22 cartes Spéciales Uno</strong> (effet en M1, joker en M2) — Pop-up CGU × 5, Synchronisation × 5, Notification push × 5, Dark pattern × 4, Fuite de données × 3</li>
           <li><strong>8 cartes Événement M2</strong> — Data broker × 4, IA prédictive × 4</li>
           <li><strong>24 cartes Service Plateforme</strong> (8 types × 3) — 16 à petit effectif (2 par type)</li>
           <li><strong>60 cartes Profil</strong> (20 profils × 3) — combos variables de 2 à 4 données</li>
-          <li><strong>~80 jetons Capital-données</strong></li>
         </ul>
         <p><strong>Total à effectif max : 222 cartes</strong> (108 + 22 + 8 + 24 + 60).</p>
 
@@ -103,7 +102,7 @@
       <!-- M1 -->
       <div class="rules-block" id="m1">
         <h3>3. Manche 1 — L'inscription (12 min)</h3>
-        <p><em>Format Uno classique. Tous les élèves sont utilisateurs. Une seule pile centrale, une seule pioche. L'enseignant tient la banque (jetons + catalogue Service Plateforme).</em></p>
+        <p><em>Format Uno classique. Tous les élèves sont utilisateurs. Une seule pile centrale, une seule pioche. L'enseignant tient le catalogue Service Plateforme.</em></p>
 
         <h4>Préparation (2 min)</h4>
         <ul>
@@ -117,45 +116,47 @@
         <h4>Règle du tour (sens horaire, rythme rapide)</h4>
         <p>À son tour, chaque utilisateur choisit <strong>une</strong> action :</p>
         <ol>
-          <li><strong>Se défausser</strong> — pose une carte Donnée qui matche par <em>plateforme OU catégorie</em> (→ 1 jeton) OU une carte Spéciale (0 jeton sauf Dark pattern).</li>
-          <li><strong>Acheter un Service Plateforme</strong> — paie 3 jetons, choisit 1 carte dans le catalogue.</li>
+          <li><strong>Se défausser</strong> : pose une ou plusieurs cartes Données en chaîne (la 1ère matche la carte d'appel par <em>plateforme OU catégorie</em>, chacune des suivantes matche la précédente) OU une carte Spéciale.</li>
           <li><strong>Piocher</strong> — pioche 1 carte, passe son tour (choix libre même si on pouvait jouer).</li>
         </ol>
+        <p><strong>Main vide</strong> : l'utilisateur qui pose sa dernière carte choisit 1 Service Plateforme dans le catalogue, le garde devant lui, repioche 5 cartes et continue.</p>
 
         <h4>Effets des cartes Spéciales</h4>
+        <p>Chaque carte Spéciale porte en pied une ligne « Ensuite » qui dit ce qui se passe après elle.</p>
         <ul>
-          <li><strong>🎁 Pop-up CGU</strong> — le joueur suivant pose 2 cartes Données en chaîne, sans recevoir de jeton.</li>
+          <li><strong>🎁 Pop-up CGU</strong> : le joueur suivant pioche 2 cartes et passe son tour.</li>
           <li><strong>🔄 Synchronisation</strong> — le poseur choisit la nouvelle plateforme exigée.</li>
-          <li><strong>🔔 Notification push</strong> — le poseur enchaîne 2 cartes Données (1 jeton par carte).</li>
-          <li><strong>🕳️ Dark pattern</strong> — le poseur joue ensuite la Donnée de son choix, sans condition, et reçoit 1 jeton.</li>
+          <li><strong>🔔 Notification push</strong> : le poseur enchaîne 2 cartes Données en chaîne.</li>
+          <li><strong>🕳️ Dark pattern</strong> : le poseur joue ensuite la Donnée de son choix, sans condition.</li>
           <li><strong>💀 Fuite de données</strong> — tous les joueurs montrent leurs cartes 10 secondes ; action bonus, le tour continue.</li>
         </ul>
 
         <h4>Fin de manche</h4>
-        <p>Dès que <strong>l'une des trois conditions</strong> est atteinte : le chrono s'écoule, un utilisateur a vidé sa main, OU <strong>le catalogue Service Plateforme est épuisé</strong> (plus rien à acheter). Cette dernière condition crée une inégalité d'accès volontaire — les joueurs lents arrivent trop tard, parallèle à exploiter au débrief. Mini-bilan oral : combien de Services et combien de jetons restants ? <strong>Pas de calcul de points encore</strong> — on enchaîne directement sur M2.</p>
+        <p>Dès que <strong>l'une des deux conditions</strong> est atteinte : le chrono s'écoule OU <strong>le catalogue Service Plateforme est épuisé</strong> (plus aucun service à gagner). Vider sa main ne termine plus la manche. Cette dernière condition crée une inégalité d'accès volontaire — les joueurs lents arrivent trop tard, parallèle à exploiter au débrief. Mini-bilan oral : combien de Services chacun a-t-il gagnés, et combien de cartes a-t-il cédées pour chacun ? <strong>Pas de calcul de points encore</strong> — on enchaîne directement sur M2.</p>
       </div>
 
       <!-- M2 -->
       <div class="rules-block" id="m2">
         <h3>4. Manche 2 — Le ciblage (12-15 min)</h3>
-        <p><em>Tous les élèves deviennent annonceurs. Mécanique Rami : piocher, constituer des combos de 2 à 4 Données pour remporter des cartes Profil (6 pts). Les jetons de M1 sont mis de côté, ils ne servent plus.</em></p>
+        <p><em>Tous les élèves deviennent annonceurs. Mécanique Rami : piocher, constituer des combos de 2 à 4 Données pour remporter des cartes Profil (4, 6 ou 8 pts). Les cartes Spéciales servent de jokers.</em></p>
 
         <h4>Préparation (3 min)</h4>
         <ul>
-          <li>Rassembler toutes les cartes Données restantes</li>
-          <li>Retirer les 22 Spéciales Uno, ajouter les 8 cartes Événement M2</li>
+          <li>Rassembler toutes les cartes Données et Spéciales</li>
+          <li>Garder les 22 Spéciales Uno (jokers), ajouter les 8 cartes Événement M2</li>
           <li>Mélanger, pioche face cachée + défausse de départ</li>
           <li>Poser 6 cartes Profil face visible au centre (les cibles), réserve à côté face cachée</li>
-          <li>Distribuer 7 cartes Données par annonceur</li>
+          <li>Distribuer 7 cartes par annonceur</li>
         </ul>
 
         <h4>Tour de jeu</h4>
         <ol>
           <li><strong>Piocher</strong> 1 carte (pile face cachée OU défausse, sauf Événement).</li>
-          <li><strong>Poser un combo</strong> de 2 à 4 cartes (selon le profil visé) → remporte la carte Profil (6 pts), aussitôt remplacée depuis la réserve → toujours 6 cibles visibles.</li>
+          <li><strong>Poser un combo</strong> de 2 à 4 cartes (selon le profil visé) → remporte la carte Profil (4, 6 ou 8 pts), aussitôt remplacée depuis la réserve → toujours 6 cibles visibles.</li>
           <li><strong>OU défausser</strong> 1 carte face visible (déposer un combo remplace la défausse — un seul combo par tour).</li>
         </ol>
-        <p>Pour les combos, <strong>seul le nom de la donnée compte</strong>, pas la plateforme. Un profil à 2 données se complète plus vite qu'un à 4, mais vaut les mêmes 6 pts — c'est intentionnel : <em>parfois deux données suffisent à te cibler.</em></p>
+        <p>Pour les combos, <strong>seul le nom de la donnée compte</strong>, pas la plateforme. La valeur croît avec l'agrégation : <em>chaque donnée de plus sur toi augmente ta valeur pour un annonceur.</em></p>
+        <p><strong>Jokers</strong> : une carte Spéciale remplace n'importe quelle Donnée d'un combo, sans limite. En M2, elle n'a plus d'effet.</p>
 
         <h4>Événements</h4>
         <ul>
@@ -167,7 +168,7 @@
         <p>Les 6 cartes Profil au centre sont visibles de tous : quand deux annonceurs visent le même profil, c'est le premier qui pose qui gagne. Une carte gagnée est aussitôt remplacée depuis la réserve — toujours 6 cibles disponibles.</p>
 
         <h4>Fin de la manche</h4>
-        <p>Dès qu'un annonceur a remporté <strong>4 cartes Profil</strong> (≈ 24 pts, de quoi creuser l'écart avant la confiscation). <em>Filet :</em> si personne n'y arrive, couper au chrono (≈ 10 min) — le plus de profils l'emporte.</p>
+        <p>Dès qu'un annonceur a remporté <strong>4 cartes Profil</strong> (16 à 32 pts, de quoi creuser l'écart avant la confiscation). <em>Filet :</em> si personne n'y arrive, couper au chrono (≈ 10 min) — le plus de profils l'emporte.</p>
       </div>
 
       <!-- Comptage -->
@@ -176,8 +177,7 @@
         <p>Chaque élève fait son calcul à voix haute :</p>
         <ul>
           <li><strong>Services Plateforme × 3 pts</strong> (accumulés en M1)</li>
-          <li><strong>Profils × 6 pts</strong> (remportés en M2)</li>
-          <li>Les jetons ne comptent pas</li>
+          <li><strong>Profils : 4, 6 ou 8 pts</strong> selon la pastille (remportés en M2)</li>
         </ul>
         <p>L'enseignant note le <strong>classement au tableau</strong>. Laisser le gagnant savourer son titre 30 secondes avant d'enchaîner sur M3. <em>Plus le score est ancré, plus la confiscation choque.</em></p>
       </div>
@@ -196,7 +196,6 @@
           <li>Toutes les cartes Service Plateforme (les « trophées »)</li>
           <li>Toutes les cartes Profil — complétées ou en main</li>
           <li>Toutes les cartes Données restantes</li>
-          <li>Tous les jetons</li>
         </ul>
         <p>Il les rassemble en un <strong>énorme tas au tableau</strong>, sous une affiche écrite à la craie : <strong>« Données d'entraînement de mon IA »</strong>.</p>
 
@@ -229,7 +228,7 @@
         </ul>
         <h4>Sur la bascule</h4>
         <ul>
-          <li><strong>Ne pas révéler entre M1 et M2</strong> — laisser l'idée que les Services achetés sont une récompense.</li>
+          <li><strong>Ne pas révéler entre M1 et M2</strong> — laisser l'idée que les Services gagnés sont une récompense.</li>
           <li><strong>Faire le comptage entre M2 et M3</strong> — le classement annoncé fait monter la fierté avant que M3 ne la balaie.</li>
           <li><strong>Marquer la bascule de M3</strong> par un changement physique : se lever, baisser la voix, sortir une affiche préparée.</li>
         </ul>
